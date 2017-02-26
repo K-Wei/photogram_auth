@@ -6,4 +6,8 @@ class Like < ApplicationRecord
   # photo_id: presence
   validates :photo_id, :presence => true
 
+  # associations
+  belongs_to :user
+  belongs_to :photo
+
 end

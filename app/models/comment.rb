@@ -6,7 +6,11 @@ class Comment < ApplicationRecord
 
   # photo_id: presence
   validates :photo_id, :presence => true
-  
+
   # body: presence
   validates :body, :presence => true
+
+  # associations
+  belongs_to :user
+  belongs_to :photo
 end

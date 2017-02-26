@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   get "/delete_photo/:id", :controller => "photos", :action => "destroy"
   #------------------------------
 
+
+  # Routes for the User resource:
   devise_for :users
 
   # READ
@@ -58,5 +60,13 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
   get "/users/:id" => "users#show"
 
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #------------------------------
+  # Routes for the My Likes resource:
+
+  # READ
+  get "/my_likes" => "mylikes#index"
+
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

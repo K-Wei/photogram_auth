@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   # associations
   has_many :liked_photos, :through => :likes, :source => :photo
+  has_many :commented_photos, :through => :comments, :source => :photo
+  has_many :likes
+  has_many :photos
 end
