@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   # READ
   root "photos#index"
-  # get "/photos", :controller => "photos", :action => "index"
+  get "/photos", :controller => "photos", :action => "index"
   get "/photos/:id", :controller => "photos", :action => "show"
 
   # UPDATE
