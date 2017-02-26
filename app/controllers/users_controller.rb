@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def mylikes
     @user = current_user
 
-    @likes = Like.where(:user_id => @user.id)
+    @liked_photos = @user.liked_photos
 
     render("users/mylikes.html.erb")
   end
