@@ -59,13 +59,10 @@ Rails.application.routes.draw do
   # practice using shortened route
   get "/users" => "users#index"
   get "/users/:id" => "users#show"
+  get "/my_likes" => "users#mylikes"
 
 
-  #------------------------------
-  # Routes for the My Likes resource:
-
-  # READ
-  get "/my_likes" => "mylikes#index"
+  #---------------------------
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
