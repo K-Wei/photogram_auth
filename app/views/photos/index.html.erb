@@ -78,19 +78,35 @@
             </div>
           </li>
           <% end %>
+
+
+          <li class="media">
+            <div class="media-body">
+              <form action="/create_comment" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="photo_id" value="<%= photo.id %>">
+                <input type="hidden" name="user_id" value="<%= current_user.id %>">
+                <div class="form-group">
+
+                  <label for="body" class="sr-only"></label>
+
+                  <div class="input-group">
+                    <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required>
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                        <i class="fa fa-commenting-o"></i>
+                      </button>
+                    </span>
+                  </div>
+
+                </div>
+
+              </form>
+
+            </div>
+          </li>
         </ul>
-        <div class="form-group">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-          <input name="photo_id" value="<%= photo.id %>" type="hidden">
-          <input name="user_id" value="<%= current_user.id %>" type="hidden">
-          <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required="">
-
-            <button class="btn btn-default" type="button">
-              <i class="fa fa-commenting-o"></i>
-            </button>
-        </div>
-
 
       </div>
 
