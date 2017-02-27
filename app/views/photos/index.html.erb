@@ -36,6 +36,19 @@
         </a>
 
         <p>
+          <% if photo.likes.find_by(:user_id => current_user.id) == nil %>
+          <form action="/create_like" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input name="photo_id" value="<%= photo.id %>" type="hidden">
+            <input name="user_id" value="<%= current_user.id %>" type="hidden">
+            <button class="btn btn-link">
+              <i class="fa fa-heart-o"></i>
+            </button>
+          </form>
+          <% else %>
+          <a href="/delete_like/<%= photo.likes.find_by(:user_id => current_user.id).id %>"<i class="fa fa-heart"></i></a>
+          <% end %>
         </p>
         <ul class="media-list">
 
@@ -66,6 +79,19 @@
           </li>
           <% end %>
         </ul>
+        <div class="form-group">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <input name="photo_id" value="<%= photo.id %>" type="hidden">
+          <input name="user_id" value="<%= current_user.id %>" type="hidden">
+          <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required="">
+
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-commenting-o"></i>
+            </button>
+        </div>
+
+
       </div>
 
     </div>
